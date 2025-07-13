@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wonders of DNA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap');
+        
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --gradient: linear-gradient(135deg, #3498db, #2c3e50);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Q50,80 0,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-left: 10px;
+            color: var(--accent-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .dna-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+        
+        .dna-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 0 20px;
+        }
+        
+        .dna-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .dna-text p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .dna-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .dna-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .dna-image img:hover {
+            transform: scale(1.03);
+        }
+        
+        /* DNA Structure Section */
+        .dna-structure {
+            background-color: var(--light-color);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dna-structure::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,50 Q50,70 0,50 Z" fill="%232c3e50" opacity="0.02"/></svg>');
+            background-size: 100% 100%;
+        }
+        
+        .bases {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .base {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 15px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .base:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .base::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+        }
+        
+        .base-adenine::before {
+            background-color: #e74c3c;
+        }
+        
+        .base-thymine::before {
+            background-color: #3498db;
+        }
+        
+        .base-cytosine::before {
+            background-color: #2ecc71;
+        }
+        
+        .base-guanine::before {
+            background-color: #f39c12;
+        }
+        
+        .base i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .base h4 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        /* DNA Animation */
+        .dna-animation {
+            text-align: center;
+            margin: 60px 0;
+            padding: 40px 0;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .dna-model {
+            width: 200px;
+            height: 300px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .helix {
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background-color: var(--secondary-color);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .helix::before, .helix::after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background-color: var(--secondary-color);
+            left: 0;
+        }
+        
+        .helix::before {
+            transform: rotate(60deg);
+        }
+        
+        .helix::after {
+            transform: rotate(-60deg);
+        }
+        
+        .base-pair {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            animation: float 3s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            padding: 0 20px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #bdc3c7;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #bdc3c7;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .dna-info {
+                flex-direction: column;
+            }
+            
+            .dna-text, .dna-image {
+                padding: 20px 0;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span>DNA</span>
+                    <i class="fas fa-dna"></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About DNA</a></li>
+                    <li><a href="#">Structure</a></li>
+                    <li><a href="#">Applications</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Deoxyribonucleic Acid (DNA)</h1>
+            <p>The hereditary material that carries genetic instructions essential for the growth, development, functioning, and reproduction of all known living organisms</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <section class="dna-intro">
+                <div class="section-title">
+                    <h2>What is DNA?</h2>
+                </div>
+                <div class="dna-info">
+                    <div class="dna-text">
+                        <h3>The Blueprint of Life</h3>
+                        <p>DNA, or deoxyribonucleic acid, is the hereditary material that carries genetic instructions essential for the growth, development, functioning, and reproduction of all known living organisms and many viruses.</p>
+                        <p>Found mainly in the cell nucleus, DNA is composed of two strands forming a double helix, built from four nucleotide bases: adenine (A), thymine (T), cytosine (C), and guanine (G).</p>
+                        <p>These sequences encode information that directs the synthesis of proteins, which are critical for cellular structure and function.</p>
+                    </div>
+                    <div class="dna-image">
+                        <img src="https://images.unsplash.com/photo-1559479083-f3b234ad0d53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" alt="DNA Structure">
+                    </div>
+                </div>
+            </section>
+
+            <section class="dna-structure">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>The Nucleotide Bases</h2>
+                    </div>
+                    <div class="bases">
+                        <div class="base base-adenine">
+                            <i class="fas fa-atom"></i>
+                            <h4>Adenine (A)</h4>
+                            <p>Pairs with Thymine in DNA</p>
+                        </div>
+                        <div class="base base-thymine">
+                            <i class="fas fa-atom"></i>
+                            <h4>Thymine (T)</h4>
+                            <p>Pairs with Adenine in DNA</p>
+                        </div>
+                        <div class="base base-cytosine">
+                            <i class="fas fa-atom"></i>
+                            <h4>Cytosine (C)</h4>
+                            <p>Pairs with Guanine in DNA</p>
+                        </div>
+                        <div class="base base-guanine">
+                            <i class="fas fa-atom"></i>
+                            <h4>Guanine (G)</h4>
+                            <p>Pairs with Cytosine in DNA</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="dna-function">
+                <div class="section-title">
+                    <h2>Functions of DNA</h2>
+                </div>
+                <div class="dna-info reverse">
+                    <div class="dna-image">
+                        <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a7f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="DNA Function">
+                    </div>
+                    <div class="dna-text">
+                        <h3>Genetic Diversity and Evolution</h3>
+                        <p>Through processes like replication and mutation, DNA enables inheritance and contributes to genetic diversity, which drives evolution and adaptation in populations over time.</p>
+                        <p>The DNA molecule contains all the information needed to build and maintain an organism. This information is encoded in the sequence of the four nucleotide bases.</p>
+                        <p>When cells divide, DNA is replicated with remarkable accuracy to ensure genetic information is passed to new cells. However, occasional errors in replication lead to mutations, some of which may be beneficial and contribute to evolutionary change.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="dna-animation">
+                <div class="section-title">
+                    <h2>The Double Helix Structure</h2>
+                </div>
+                <div class="dna-model">
+                    <div class="helix"></div>
+                    <div class="base-pair" style="top: 10%;">
+                        <span>A</span>
+                        <span>T</span>
+                    </div>
+                    <div class="base-pair" style="top: 30%;">
+                        <span>C</span>
+                        <span>G</span>
+                    </div>
+                    <div class="base-pair" style="top: 50%;">
+                        <span>G</span>
+                        <span>C</span>
+                    </div>
+                    <div class="base-pair" style="top: 70%;">
+                        <span>T</span>
+                        <span>A</span>
+                    </div>
+                    <div class="base-pair" style="top: 90%;">
+                        <span>A</span>
+                        <span>T</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>An educational website dedicated to making science, especially genetics and DNA, accessible to everyone.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#">Home</a>
+                    <a href="#">About DNA</a>
+                    <a href="#">Structure</a>
+                    <a href="#">Applications</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@dna-education.com</p>
+                    <p><i class="fas fa-phone"></i> +123 456 7890</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Science City, Knowledge Avenue</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 All Rights Reserved | The DNA Website</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for DNA base pairs
+        const basePairs = document.querySelectorAll('.base-pair');
+        
+        function animateBasePairs() {
+            basePairs.forEach((pair, index) => {
+                pair.style.animationDelay = `${index * 0.5}s`;
+            });
+        }
+        
+        // Run animation when page loads
+        window.addEventListener('load', animateBasePairs);
+        
+        // Add smooth scrolling to all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
